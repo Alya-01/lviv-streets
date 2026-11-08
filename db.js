@@ -1,5 +1,5 @@
 const path = require('path');
-const Datastore = require('nedb');
+const Datastore = require('@seald-io/nedb');
 
 const streets = new Datastore({ filename: path.join(__dirname, 'streets.db') });
 const houses = new Datastore({ filename: path.join(__dirname, 'houses.db') });
