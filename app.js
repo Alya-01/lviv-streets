@@ -1,5 +1,5 @@
 const express = require('express');
-const { streets, houses } = require('./db');
+const { streets, houses, init } = require('./db');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -32,6 +32,12 @@ app.use((err, req, res, next) => {
   res.status(500).send('Помилка сервера');
 });
 
-app.listen(PORT, () => {
-  console.log(`Сервер запущено: http://localhost:${PORT}`);
+init((err) => {
+  if (err) {
+    console.error('Помилка бази даних:', err);
+    process.exit(1);
+  }
+  app.listen(PORT, () => {
+    console.log(`Сервер запущено на порту ${PORT}`);
+  });
 });
