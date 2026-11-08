@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Будинки: <%= street.name %></title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    table { border-collapse: collapse; }
+    th, td { border: 1px solid #888; padding: 8px 16px; text-align: left; }
+    th { background: #eee; }
+  </style>
+</head>
+<body>
+  <h1>Будинки на вулиці: <%= street.name %></h1>
+  <table>
+    <tr><th>Номер будинку</th><th>Кількість поверхів</th></tr>
+    <% houses.forEach(function (h) { %>
+      <tr><td><%= h.number %></td><td><%= h.floors %></td></tr>
+    <% }); %>
+  </table>
+  <p><a href="/">← До списку вулиць</a></p>
+</body>
+</html>

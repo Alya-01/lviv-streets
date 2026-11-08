@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Вулиці Львова</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    table { border-collapse: collapse; }
+    th, td { border: 1px solid #888; padding: 8px 16px; text-align: left; }
+    th { background: #eee; }
+  </style>
+</head>
+<body>
+  <h1>Вулиці Львова</h1>
+  <table>
+    <tr><th>Назва вулиці</th><th>Район</th></tr>
+    <% streets.forEach(function (s) { %>
+      <tr>
+        <td><a href="/street/<%= s._id %>"><%= s.name %></a></td>
+        <td><%= s.district %></td>
+      </tr>
+    <% }); %>
+  </table>
+</body>
+</html>
